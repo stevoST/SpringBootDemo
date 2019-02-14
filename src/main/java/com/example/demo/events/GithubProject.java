@@ -1,11 +1,12 @@
 package com.example.demo.events;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
+import java.io.Serializable;
+
 
 @Entity
 public class GithubProject implements Serializable {
@@ -18,7 +19,7 @@ public class GithubProject implements Serializable {
     @Column(unique = true)
     private String repoName;
 
-    public GithubProject(){
+    public GithubProject() {
 
     }
 
@@ -27,13 +28,25 @@ public class GithubProject implements Serializable {
         this.repoName = repoName;
     }
 
-    public Long getId() {return id; }
+    public Long getId() {
+        return id;
+    }
 
-    public String getOrgName() {return orgName; }
+    public String getOrgName() {
+        return orgName;
+    }
 
-    public void setOrgName(String orgName) {this.orgName = orgName; }
+    public void setOrgName(String orgName) {
+        this.orgName = orgName;
+    }
 
-    public String getRepoName() {return repoName; }
+    public String getRepoName() {
+        return repoName;
+    }
+
+    public void setRepoName(String repoName) {
+        this.repoName = repoName;
+    }
 
     @Override
     public String toString() {
