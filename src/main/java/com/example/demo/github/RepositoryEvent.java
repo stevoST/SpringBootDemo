@@ -42,7 +42,7 @@ public class RepositoryEvent {
     CLOSED("closed"),
     REOPENED("reopened"),
     SUBSCRIBED("subscribed"),
-    UNSUBSCRIBED("unsuscribed"),
+    UNSUBSCRIBED("unsubscribed"),
     MERGED("merged"),
     REFERENCED("referenced"),
     MENTIONED("mentioned"),
