@@ -1,6 +1,5 @@
 package com.example.demo.github;
 
-import org.springframework.util.StringUtils;
 import com.example.demo.GithubProperties;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpHeaders;
@@ -11,10 +10,13 @@ import org.springframework.http.client.ClientHttpRequestInterceptor;
 import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.util.Base64Utils;
+import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
 
 @Component
 public class GithubClient {
@@ -32,6 +34,10 @@ public class GithubClient {
 
   public ResponseEntity<RepositoryEvent[]> fetchEvents(String orgName, String repoName){
     return this.restTemplate.getForEntity(EVENT_ISSUES_URL, RepositoryEvent[].class, orgName, repoName);
+  }
+
+  public List<RepositoryEvent> fetchEventsList(String orgName, String repoName) {
+    return Arrays.asList(fetchEvents(orgName, repoName).getBody());
   }
 
   private static class GithubAppTokenInterceptor implements ClientHttpRequestInterceptor {
