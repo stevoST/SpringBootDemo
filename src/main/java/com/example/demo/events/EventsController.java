@@ -32,6 +32,13 @@ public class EventsController {
         return this.githubClient.fetchEvents(project.getOrgName(), project.getRepoName()).getBody();
     }
 
+    @GetMapping("/admin")
+    public String admin(Model model) {
+
+        model.addAttribute("projects", this.repository.findAll());
+        return "admin";
+    }
+
     @GetMapping("/")
     public String dashboard(Model model) {
 
