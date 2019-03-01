@@ -3,6 +3,7 @@ package com.example.demo.github;
 import com.example.demo.GithubProperties;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.boot.web.client.RestTemplateBuilder;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpRequest;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +24,9 @@ import java.util.concurrent.atomic.AtomicInteger;
 @Component
 public class GithubClient {
 
-  private static final String EVENT_ISSUES_URL = "https://api.github.com/repos/{owner}/{repo}/issues/events";
-
   private final RestTemplate restTemplate;
+
+  private static final String EVENT_ISSUES_URL = "https://api.github.com/repos/{owner}/{repo}/issues/events";
 
   public GithubClient(RestTemplateBuilder builder, GithubProperties properties, MeterRegistry registry) {
 
@@ -39,6 +40,7 @@ public class GithubClient {
     return this.restTemplate.getForEntity(EVENT_ISSUES_URL, RepositoryEvent[].class, orgName, repoName);
   }
 
+  @Cacheable("events")
   public List<RepositoryEvent> fetchEventsList(String orgName, String repoName) {
     return Arrays.asList(fetchEvents(orgName, repoName).getBody());
   }

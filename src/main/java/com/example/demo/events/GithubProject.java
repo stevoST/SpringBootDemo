@@ -52,8 +52,8 @@ public class GithubProject implements Serializable {
     public String toString() {
         return "GithubProject{" +
                 "id=" + id +
-                ", orgName=" + orgName + '\'' +
-                ", repoName=" + repoName + '\'' +
+                ", orgName='" + orgName + '\'' +
+                ", repoName='" + repoName + '\'' +
                 '}';
     }
 }

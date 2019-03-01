@@ -72,7 +72,8 @@ public class RepositoryEvent {
           return value;
         }
       }
-      throw new IllegalArgumentException("'"+ type + "' is not valid event type");
+      throw new IllegalArgumentException(
+              "'"+ type + "' is not valid event type");
     }
 
   }
