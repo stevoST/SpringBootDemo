@@ -22,7 +22,7 @@
 </section>
 <section data-th-each="entry : ${entries}" class="section">
     <div class="container">
-        <h1 class="title">[[$[entry.project.orgName}]] / [[${entry.project.repoName}]]</h1>
+        <h1 class="title">[[${entry.project.orgName}]] / [[${entry.project.repoName}]]</h1>
         <table class="table is-hoverable is-fullwidth">
             <thread>
                 <th>Actor</th>
@@ -31,7 +31,7 @@
                 <th>Time</th>
             </thread>
             <tbody>
-            <tr data-th-each="evemt : ${entry.events}">
+            <tr data-th-each="event : ${entry.events}">
                 <td><a data-th-href="${event.actor.htmlUrl}">[[${event.actor.login}]]</a></td>
                 <td><code>[[${event.type}]]</code></td>
                 <td><span data-th-if="${event.issue}"><a
