@@ -59,8 +59,11 @@ public class RepositoryEvent {
     HEAD_REF_RESTORED("head_ref_restored"),
     CONVERTED_NOTE_TO_ISSUE("converted_note_to_issue"),
     MOVED_COLUMNS_IN_PROJECT("moved_columns_in_project"),
+    MARKED_AS_DUPLICATE("marked_as_duplicate"),
+    COMMENT_DELETED("comment_deleted"),
+    REVIEW_REQUESTED("review_requested"),
     HEAD_REF_FORCE_PUSHED("head_ref_force_pushed"),
-    MARKED_AS_DUPLICATE("marked_as_duplicate");
+    BASE_REF_FORCE_PUSHED("base_ref_force_pushed");
 
     private String type;
 

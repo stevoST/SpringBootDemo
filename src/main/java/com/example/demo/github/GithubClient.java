@@ -76,7 +76,7 @@ public class GithubClient {
     public ClientHttpResponse intercept(HttpRequest httpRequest, byte[] bytes,
                                         ClientHttpRequestExecution clientHttpRequestExecution) throws IOException {
       ClientHttpResponse response = clientHttpRequestExecution.execute(httpRequest, bytes);
-      this.gauge.set(Integer.parseInt(response.getHeaders().getFirst("X-RateLimit_remaining")));
+      this.gauge.set(Integer.parseInt(response.getHeaders().getFirst("X-RateLimit-remaining")));
       return response;
     }
   }
